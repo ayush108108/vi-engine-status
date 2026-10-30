@@ -1,6 +1,6 @@
 [
   {
-    "name": "VI Engine app",
+    "name": "App — app.viengine.social",
     "url": "https://app.viengine.social",
     "icon": "https://icons.duckduckgo.com/ip3/app.viengine.social.ico",
     "slug": "vi-engine-app",
@@ -18,7 +18,7 @@
     "dailyMinutesDown": {}
   },
   {
-    "name": "VI Engine backend (API health)",
+    "name": "API — api.viengine.social (health)",
     "url": "https://api.viengine.social/health",
     "icon": "https://icons.duckduckgo.com/ip3/api.viengine.social.ico",
     "slug": "vi-engine-backend-api-health",
@@ -36,7 +36,7 @@
     "dailyMinutesDown": {}
   },
   {
-    "name": "VI Engine website",
+    "name": "Website — viengine.social",
     "url": "https://viengine.social",
     "icon": "https://icons.duckduckgo.com/ip3/viengine.social.ico",
     "slug": "vi-engine-website",
