@@ -3,12 +3,15 @@ owner: ayush108108
 repo: vi-engine-status
 
 sites:
-  - name: VI Engine app
+  - name: App — app.viengine.social
     url: https://app.viengine.social
-  - name: VI Engine backend (API health)
+    slug: vi-engine-app
+  - name: API — api.viengine.social (health)
     url: https://api.viengine.social/health
-  - name: VI Engine website
+    slug: vi-engine-backend-api-health
+  - name: Website — viengine.social
     url: https://viengine.social
+    slug: vi-engine-website
 
 # Checks run every 5 minutes. GitHub may delay scheduled runs by a few minutes at busy times.
 workflowSchedule:
@@ -20,14 +23,102 @@ assignees:
 status-website:
   cname: status.viengine.social
   name: VI Engine Status
-  logoUrl: https://viengine.social/favicon.ico
-  introTitle: "VI Engine service status"
-  introMessage: "Live status of the VI Engine app, backend and website. If something is down, we are already on it."
+  logoUrl: https://viengine.social/icon-512x512.png
+  favicon: https://viengine.social/favicon-32x32.png
+  theme: dark
+  introTitle: "VI Engine status"
+  introMessage: "This page tracks the web app, the public API and the marketing website, checked every 5 minutes from GitHub, and incidents are posted as issues."
   navbar:
     - title: Status
       href: /
+    - title: App
+      href: https://app.viengine.social
+    - title: Changelog
+      href: https://viengine.social/changelog
     - title: VI Engine
       href: https://viengine.social
+  customHeadHtml: |
+    <style>
+      :root {
+        --body-background-color: #050d12;
+        --body-text-color: #e6edf3;
+        --card-background-color: #0b1720;
+        --card-border-color: rgba(255, 255, 255, 0.08);
+        --nav-background-color: #050d12;
+        --nav-border-bottom-color: rgba(255, 255, 255, 0.08);
+        --nav-current-border-bottom-color: #19c6a6;
+      }
+      html, body {
+        background-color: #050d12 !important;
+        color: #e6edf3 !important;
+        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif !important;
+        -webkit-font-smoothing: antialiased;
+      }
+      nav {
+        background-color: #050d12 !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+      }
+      nav a { color: #8b949e !important; }
+      nav a:hover, nav a[aria-current] {
+        color: #19c6a6 !important;
+        border-bottom-color: #19c6a6 !important;
+      }
+      nav .logo { color: #ffffff !important; font-weight: 600 !important; }
+      nav .logo img { border-radius: 8px !important; }
+      h1 { color: #ffffff !important; font-weight: 700 !important; letter-spacing: -0.02em; }
+      p.lead, header p { color: #8b949e !important; font-size: 1.05rem !important; line-height: 1.6; }
+      h2 {
+        font-size: 0.85rem !important;
+        font-weight: 600 !important;
+        text-transform: uppercase !important;
+        font-variant: small-caps !important;
+        letter-spacing: 0.08em !important;
+        color: #8b949e !important;
+        margin-top: 2rem !important;
+        margin-bottom: 0.75rem !important;
+      }
+      article {
+        background-color: #0b1720 !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border-radius: 16px !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, border-color 0.2s ease;
+        margin-bottom: 0.75rem !important;
+      }
+      article:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+        border-color: rgba(25, 198, 166, 0.35) !important;
+      }
+      article h4 a { color: #ffffff !important; font-weight: 600 !important; }
+      article:hover h4 a { color: #19c6a6 !important; }
+      article.up:not(.link), article.down:not(.link), article.degraded:not(.link) {
+        font-size: 1.15rem !important;
+        font-weight: 600 !important;
+        padding: 1.1rem 1.5rem !important;
+        border-radius: 16px !important;
+        margin-bottom: 2rem !important;
+      }
+      article.up { border-left: 4px solid #19c6a6 !important; }
+      article.down { border-left: 4px solid #f85149 !important; }
+      article.degraded { border-left: 4px solid #e3b341 !important; }
+      a { color: #19c6a6; }
+      .data { background-color: rgba(255, 255, 255, 0.06) !important; color: #e6edf3 !important; border-radius: 6px !important; }
+      .r label { color: #8b949e !important; font-size: 0.85rem; cursor: pointer; }
+      .r input:checked + label { color: #19c6a6 !important; font-weight: 600 !important; }
+      footer {
+        opacity: 0.75 !important;
+        margin-top: 3.5rem !important;
+        padding-top: 1.5rem !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        font-size: 0.85rem !important;
+        color: #8b949e !important;
+        display: block !important;
+        visibility: visible !important;
+      }
+      footer a { color: #8b949e !important; text-decoration: underline !important; }
+      footer a:hover { color: #19c6a6 !important; }
+    </style>
 
 commitMessages:
   readmeContent: ":pencil: Update summary in README [skip ci]"
